@@ -1,0 +1,2715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fordios — Premium Alight Motion Presets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-primary: #030304;
+            --bg-secondary: #0a0a0f;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glass-hover: rgba(255, 255, 255, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-muted: rgba(255, 255, 255, 0.35);
+            --accent-cyan: #00f0ff;
+            --accent-purple: #b829f7;
+            --accent-pink: #ff2d92;
+            --accent-blue: #2979ff;
+            --accent-orange: #ff9100;
+            --accent-green: #00e676;
+            --accent-gold: #ffb800;
+            --glass-blur: blur(24px) saturate(180%);
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(41, 121, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(184, 41, 247, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 50% 100%, rgba(0, 240, 255, 0.04) 0%, transparent 50%);
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.025;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 2rem;
+            background: rgba(3, 3, 4, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cart-btn-nav {
+            position: relative;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-btn-nav:hover {
+            background: var(--bg-glass);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: var(--accent-pink);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--bg-primary);
+        }
+
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cart-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            background: linear-gradient(180deg, #0a0a12 0%, #030304 100%);
+            border-left: 1px solid var(--border-glass);
+            z-index: 2001;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.open {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: 1.5rem 1.5rem 1rem;
+            border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-close:hover {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+        }
+
+        .cart-empty i {
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            margin-bottom: 0.75rem;
+            transition: var(--transition-smooth);
+        }
+
+        .cart-item:hover {
+            border-color: var(--border-glass-hover);
+        }
+
+        .cart-item-thumb {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .cart-item-thumb video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cart-item-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cart-item-price {
+            font-size: 0.875rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.375rem;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+        }
+
+        .cart-item-remove:hover {
+            color: var(--accent-pink);
+            background: rgba(255, 45, 146, 0.1);
+        }
+
+        .cart-footer {
+            padding: 1.25rem 1.5rem 1.5rem;
+            border-top: 1px solid var(--border-glass);
+            background: rgba(3, 3, 4, 0.8);
+            backdrop-filter: blur(20px);
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .cart-total-label {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        .cart-total-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .btn-checkout {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(184, 41, 247, 0.2) 100%);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-checkout:hover {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.3) 0%, rgba(184, 41, 247, 0.3) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 240, 255, 0.15);
+        }
+
+        /* ===== PREMIUM MODAL ===== */
+        .premium-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 3, 4, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 2500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .premium-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .premium-modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(180deg, #080810 0%, #030304 100%);
+            z-index: 2501;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .premium-modal.open {
+            transform: translateY(0);
+        }
+
+        .premium-modal::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .premium-modal::-webkit-scrollbar-thumb {
+            background: rgba(255, 184, 0, 0.3);
+            border-radius: 3px;
+        }
+
+        .premium-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 1.5rem 2rem;
+            background: rgba(3, 3, 4, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .premium-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .premium-header-left h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ff8c00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .premium-header-left p {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .premium-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.625rem;
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-glass);
+        }
+
+        .premium-close:hover {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+            border-color: var(--accent-gold);
+        }
+
+        .premium-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        .premium-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.875rem;
+            background: rgba(255, 184, 0, 0.12);
+            border: 1px solid rgba(255, 184, 0, 0.25);
+            border-radius: 100px;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 5;
+            backdrop-filter: blur(10px);
+        }
+
+        .premium-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 1px;
+            background: linear-gradient(180deg, rgba(255,184,0,0.15) 0%, transparent 50%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 184, 0, 0.2);
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.4),
+                0 0 40px rgba(255, 184, 0, 0.05);
+        }
+
+        .premium-card .card-price {
+            color: var(--accent-gold);
+        }
+
+        .premium-card .btn-add-cart {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.15) 0%, rgba(255, 140, 0, 0.15) 100%);
+            border: 1px solid rgba(255, 184, 0, 0.2);
+        }
+
+        .premium-card .btn-add-cart:hover {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.25) 0%, rgba(255, 140, 0, 0.25) 100%);
+            border-color: rgba(255, 184, 0, 0.4);
+            box-shadow: 0 8px 24px rgba(255, 184, 0, 0.15);
+        }
+
+        .premium-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 184, 0, 0.06) 0%, transparent 70%);
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            position: relative;
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            overflow: hidden;
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(20px) saturate(150%);
+            color: var(--text-primary);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 
+                0 4px 24px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1),
+                0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.2) 55%, transparent 60%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .btn-primary:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 32px rgba(0, 240, 255, 0.15),
+                inset 0 1px 0 rgba(255,255,255,0.15),
+                0 0 0 1px rgba(0, 240, 255, 0.2);
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-glass);
+            border-color: var(--border-glass-hover);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.15) 0%, rgba(255, 140, 0, 0.1) 100%);
+            backdrop-filter: blur(20px) saturate(150%);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 184, 0, 0.25);
+            box-shadow: 
+                0 4px 24px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 32px rgba(255, 184, 0, 0.15),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+            border-color: rgba(255, 184, 0, 0.4);
+        }
+
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-purple);
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            border: 1px solid var(--border-glass);
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--border-glass-hover);
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(184, 41, 247, 0.1) 100%);
+            border-color: rgba(0, 240, 255, 0.3);
+            color: var(--text-primary);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+        }
+
+        .cards-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 400px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .preset-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .preset-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 1px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .preset-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-glass-hover);
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.4),
+                0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        .preview-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+
+        .preview-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+            cursor: none;
+        }
+
+        .preview-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(3,3,4,0.8) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .preset-card:hover .preview-overlay {
+            opacity: 1;
+        }
+
+        .preview-badge {
+            padding: 0.375rem 0.75rem;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .card-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            white-space: nowrap;
+        }
+
+        .card-price span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-left: 0.25rem;
+        }
+
+        .preset-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .preset-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            padding: 0.375rem 0;
+        }
+
+        .preset-list li i {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-green);
+            flex-shrink: 0;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn-buy {
+            flex: 1;
+            padding: 0.875rem;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(184, 41, 247, 0.15) 100%);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-buy:hover {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.25) 0%, rgba(184, 41, 247, 0.25) 100%);
+            border-color: rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 240, 255, 0.15);
+        }
+
+        .btn-add-cart {
+            flex: 1;
+            padding: 0.875rem;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, rgba(0, 230, 118, 0.15) 0%, rgba(0, 240, 255, 0.15) 100%);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(0, 230, 118, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-add-cart:hover {
+            background: linear-gradient(135deg, rgba(0, 230, 118, 0.25) 0%, rgba(0, 240, 255, 0.25) 100%);
+            border-color: rgba(0, 230, 118, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 230, 118, 0.15);
+        }
+
+        .btn-add-cart.added {
+            background: linear-gradient(135deg, rgba(0, 230, 118, 0.3) 0%, rgba(0, 240, 255, 0.3) 100%);
+            border-color: rgba(0, 230, 118, 0.5);
+        }
+
+        .btn-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            border: 1px solid var(--border-glass);
+            background: var(--bg-glass);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(10px);
+            flex-shrink: 0;
+        }
+
+        .btn-icon:hover {
+            background: rgba(255,255,255,0.08);
+            color: var(--text-primary);
+            border-color: var(--border-glass-hover);
+        }
+
+        .category-section {
+            display: none;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .category-section.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-glass);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .category-tabs {
+                gap: 0.5rem;
+            }
+
+            .tab-btn {
+                padding: 0.625rem 1rem;
+                font-size: 0.8125rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .cart-sidebar {
+                max-width: 100%;
+            }
+
+            .premium-modal {
+                transform: translateX(100%);
+            }
+
+            .premium-modal.open {
+                transform: translateX(0);
+            }
+
+            .premium-header {
+                padding: 1.25rem 1rem;
+            }
+
+            .premium-content {
+                padding: 2rem 1rem 3rem;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-glass-hover);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass-hover);
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 3000;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg"></div>
+    <div class="grain-overlay"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Fordios</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#presets">Presets</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="cart-btn-nav" id="cartToggleBtn" aria-label="Cart">
+                <i data-lucide="shopping-cart" style="width:22px;height:22px;"></i>
+                <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i> Your Cart</h3>
+            <button class="cart-close" id="cartCloseBtn" aria-label="Close cart">
+                <i data-lucide="x" style="width:20px;height:20px;"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <i data-lucide="shopping-bag" style="width:48px;height:48px;"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span class="cart-total-label">Total</span>
+                <span class="cart-total-price" id="cartTotal">₱0</span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn">
+                <i data-lucide="credit-card" style="width:18px;height:18px;"></i>
+                Checkout
+            </button>
+        </div>
+    </div>
+
+    <div class="premium-overlay" id="premiumOverlay"></div>
+    <div class="premium-modal" id="premiumModal">
+        <div class="premium-glow"></div>
+        <div class="premium-header">
+            <div class="premium-header-left">
+                <div>
+                    <h2><i data-lucide="crown" style="width:24px;height:24px;"></i> Premium Collection</h2>
+                    <p>All exclusive presets in one place</p>
+                </div>
+            </div>
+            <button class="premium-close" id="premiumCloseBtn" aria-label="Close premium">
+                <i data-lucide="x" style="width:20px;height:20px;"></i>
+            </button>
+        </div>
+        <div class="premium-content">
+            <div class="cards-container">
+                <div class="premium-card" data-id="t1" data-title="Seamless Flow Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Seamless Flow Pack</h3>
+                                <p class="card-subtitle">Smooth cut transitions</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Zoom Blur Transition</li>
+                            <li><i data-lucide="check-circle-2"></i>Slide & Fade Mix</li>
+                            <li><i data-lucide="check-circle-2"></i>Spin Wipe Effect</li>
+                            <li><i data-lucide="check-circle-2"></i>Morph Cut</li>
+                            <li><i data-lucide="check-circle-2"></i>Velocity Slide</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="t1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="t2" data-title="Cinematic Cut Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Cinematic Cut Pack</h3>
+                                <p class="card-subtitle">Film-style transitions</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Whip Pan Speed</li>
+                            <li><i data-lucide="check-circle-2"></i>Light Leak Cut</li>
+                            <li><i data-lucide="check-circle-2"></i>Film Burn Exit</li>
+                            <li><i data-lucide="check-circle-2"></i>Shutter Flash</li>
+                            <li><i data-lucide="check-circle-2"></i>Depth Blur Shift</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="t2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="t3" data-title="Dynamic Warp Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Dynamic Warp Pack</h3>
+                                <p class="card-subtitle">High-energy shifts</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Radial Zoom Burst</li>
+                            <li><i data-lucide="check-circle-2"></i>Motion Tile Slide</li>
+                            <li><i data-lucide="check-circle-2"></i>Chromatic Split</li>
+                            <li><i data-lucide="check-circle-2"></i>Time Remap Snap</li>
+                            <li><i data-lucide="check-circle-2"></i>Elastic Bounce Cut</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="t3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="m1" data-title="Orbital Motion Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Orbital Motion Pack</h3>
+                                <p class="card-subtitle">3D layer movements</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Camera Orbit Spin</li>
+                            <li><i data-lucide="check-circle-2"></i>Parallax Depth</li>
+                            <li><i data-lucide="check-circle-2"></i>3D Flip Reveal</li>
+                            <li><i data-lucide="check-circle-2"></i>Isometric Shift</li>
+                            <li><i data-lucide="check-circle-2"></i>Perspective Zoom</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="m1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="m2" data-title="Depth Field Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Depth Field Pack</h3>
+                                <p class="card-subtitle">Focus & blur dynamics</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Rack Focus Pull</li>
+                            <li><i data-lucide="check-circle-2"></i>Blur Reveal In</li>
+                            <li><i data-lucide="check-circle-2"></i>Depth Map Shift</li>
+                            <li><i data-lucide="check-circle-2"></i>Bokeh Transition</li>
+                            <li><i data-lucide="check-circle-2"></i>Focus Stacking</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="m2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="m3" data-title="Kinetic Scale Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Kinetic Scale Pack</h3>
+                                <p class="card-subtitle">Impact scaling effects</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Impact Punch In</li>
+                            <li><i data-lucide="check-circle-2"></i>Smooth Scale Out</li>
+                            <li><i data-lucide="check-circle-2"></i>Elastic Overshoot</li>
+                            <li><i data-lucide="check-circle-2"></i>Breathing Pulse</li>
+                            <li><i data-lucide="check-circle-2"></i>Velocity Scale</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="m3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="tx1" data-title="Type Reveal Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Type Reveal Pack</h3>
+                                <p class="card-subtitle">Character animations</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Typewriter Effect</li>
+                            <li><i data-lucide="check-circle-2"></i>Character Pop In</li>
+                            <li><i data-lucide="check-circle-2"></i>Word Stagger</li>
+                            <li><i data-lucide="check-circle-2"></i>Line Mask Reveal</li>
+                            <li><i data-lucide="check-circle-2"></i>Cursor Blink Type</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="tx1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="tx2" data-title="Kinetic Title Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Kinetic Title Pack</h3>
+                                <p class="card-subtitle">Bold motion typography</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Slide Up Title</li>
+                            <li><i data-lucide="check-circle-2"></i>Scale Entrance</li>
+                            <li><i data-lucide="check-circle-2"></i>Rotate Drop In</li>
+                            <li><i data-lucide="check-circle-2"></i>Bounce Settle</li>
+                            <li><i data-lucide="check-circle-2"></i>Split Text Merge</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="tx2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="tx3" data-title="Glitch Text Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Glitch Text Pack</h3>
+                                <p class="card-subtitle">Digital distortion type</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Scan Line Text</li>
+                            <li><i data-lucide="check-circle-2"></i>RGB Split Letters</li>
+                            <li><i data-lucide="check-circle-2"></i>Data Corrupt</li>
+                            <li><i data-lucide="check-circle-2"></i>Pixel Sort Type</li>
+                            <li><i data-lucide="check-circle-2"></i>Wave Distort</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="tx3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="c1" data-title="Cinematic Grade Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Cinematic Grade Pack</h3>
+                                <p class="card-subtitle">Film look colors</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Teal Orange Blockbuster</li>
+                            <li><i data-lucide="check-circle-2"></i>Muted Earth Tones</li>
+                            <li><i data-lucide="check-circle-2"></i>High Contrast Noir</li>
+                            <li><i data-lucide="check-circle-2"></i>Warm Vintage Film</li>
+                            <li><i data-lucide="check-circle-2"></i>Cold Blue Drama</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="c1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="c2" data-title="Neon Nights Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Neon Nights Pack</h3>
+                                <p class="card-subtitle">Cyberpunk color palette</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Neon Magenta Glow</li>
+                            <li><i data-lucide="check-circle-2"></i>Cyan Electric Pop</li>
+                            <li><i data-lucide="check-circle-2"></i>Purple Haze Shift</li>
+                            <li><i data-lucide="check-circle-2"></i>Acid Green Punch</li>
+                            <li><i data-lucide="check-circle-2"></i>Hot Orange Burn</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="c2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="c3" data-title="Clean Aesthetic Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Clean Aesthetic Pack</h3>
+                                <p class="card-subtitle">Minimal bright tones</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Bright Airy Exposure</li>
+                            <li><i data-lucide="check-circle-2"></i>Soft Pastel Matte</li>
+                            <li><i data-lucide="check-circle-2"></i>Clean White Balance</li>
+                            <li><i data-lucide="check-circle-2"></i>Subtle Saturation</li>
+                            <li><i data-lucide="check-circle-2"></i>Lifted Shadows</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="c3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="g1" data-title="Digital Break Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Digital Break Pack</h3>
+                                <p class="card-subtitle">Heavy distortion effects</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Screen Tear Heavy</li>
+                            <li><i data-lucide="check-circle-2"></i>Channel Split Max</li>
+                            <li><i data-lucide="check-circle-2"></i>Pixel Crash</li>
+                            <li><i data-lucide="check-circle-2"></i>Data Moshing</li>
+                            <li><i data-lucide="check-circle-2"></i>Signal Loss</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="g1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="g2" data-title="VHS Retro Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">VHS Retro Pack</h3>
+                                <p class="card-subtitle">Analog tape effects</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Tracking Error</li>
+                            <li><i data-lucide="check-circle-2"></i>Head Clog Lines</li>
+                            <li><i data-lucide="check-circle-2"></i>Chromatic Aberration</li>
+                            <li><i data-lucide="check-circle-2"></i>Vignette Darkening</li>
+                            <li><i data-lucide="check-circle-2"></i>Tape Wobble</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="g2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-card" data-id="g3" data-title="Cyber Glitch Pack" data-price="99" data-video="">
+                    <span class="premium-badge"><i data-lucide="crown" style="width:10px;height:10px;"></i> Premium</span>
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Cyber Glitch Pack</h3>
+                                <p class="card-subtitle">Tech-noir distortion</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Matrix Rain Overlay</li>
+                            <li><i data-lucide="check-circle-2"></i>Hex Corruption</li>
+                            <li><i data-lucide="check-circle-2"></i>Scan Grid</li>
+                            <li><i data-lucide="check-circle-2"></i>System Error Flash</li>
+                            <li><i data-lucide="check-circle-2"></i>Bit Reduction</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="g3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero" id="home">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
+                Premium Alight Motion Presets
+            </div>
+            <h1>Elevate Your Mobile Edits</h1>
+            <p>Professional-grade preset packs designed for creators who demand cinematic quality. Transform your Alight Motion workflow with Fordios.</p>
+            <div class="hero-cta">
+                <a href="#categories" class="btn btn-primary">
+                    <i data-lucide="zap" style="width:18px;height:18px;"></i>
+                    Explore Presets
+                </a>
+                <button class="btn btn-gold" id="viewPremiumBtn">
+                    <i data-lucide="crown" style="width:18px;height:18px;"></i>
+                    View Premium
+                </button>
+            </div>
+        </div>
+    </section>
+    <section id="categories">
+        <div class="section-header reveal">
+            <div class="section-label">
+                <i data-lucide="grid-3x3" style="width:14px;height:14px;"></i>
+                Collection
+            </div>
+            <h2>Preset Categories</h2>
+            <p>Curated packs for every editing style. Each category contains professionally tuned effects ready to drop into your projects.</p>
+        </div>
+
+        <div class="category-tabs reveal">
+            <button class="tab-btn active" data-category="transition">
+                <i data-lucide="arrow-left-right" style="width:16px;height:16px;"></i>
+                Transition
+            </button>
+            <button class="tab-btn" data-category="mainlayer">
+                <i data-lucide="layers" style="width:16px;height:16px;"></i>
+                Main Layer
+            </button>
+            <button class="tab-btn" data-category="text">
+                <i data-lucide="type" style="width:16px;height:16px;"></i>
+                Text Animation
+            </button>
+            <button class="tab-btn" data-category="color">
+                <i data-lucide="palette" style="width:16px;height:16px;"></i>
+                Color Correction
+            </button>
+            <button class="tab-btn" data-category="glitch">
+                <i data-lucide="bug" style="width:16px;height:16px;"></i>
+                Glitch
+            </button>
+        </div>
+
+        <div class="category-section active" id="cat-transition">
+            <div class="cards-container">
+                <div class="preset-card reveal" data-id="t1" data-title="Seamless Flow Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Seamless Flow Pack</h3>
+                                <p class="card-subtitle">Smooth cut transitions</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Zoom Blur Transition</li>
+                            <li><i data-lucide="check-circle-2"></i>Slide & Fade Mix</li>
+                            <li><i data-lucide="check-circle-2"></i>Spin Wipe Effect</li>
+                            <li><i data-lucide="check-circle-2"></i>Morph Cut</li>
+                            <li><i data-lucide="check-circle-2"></i>Velocity Slide</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="t1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card reveal" data-id="t2" data-title="Cinematic Cut Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Cinematic Cut Pack</h3>
+                                <p class="card-subtitle">Film-style transitions</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Whip Pan Speed</li>
+                            <li><i data-lucide="check-circle-2"></i>Light Leak Cut</li>
+                            <li><i data-lucide="check-circle-2"></i>Film Burn Exit</li>
+                            <li><i data-lucide="check-circle-2"></i>Shutter Flash</li>
+                            <li><i data-lucide="check-circle-2"></i>Depth Blur Shift</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="t2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card reveal" data-id="t3" data-title="Dynamic Warp Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Dynamic Warp Pack</h3>
+                                <p class="card-subtitle">High-energy shifts</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Radial Zoom Burst</li>
+                            <li><i data-lucide="check-circle-2"></i>Motion Tile Slide</li>
+                            <li><i data-lucide="check-circle-2"></i>Chromatic Split</li>
+                            <li><i data-lucide="check-circle-2"></i>Time Remap Snap</li>
+                            <li><i data-lucide="check-circle-2"></i>Elastic Bounce Cut</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="t3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" id="cat-mainlayer">
+            <div class="cards-container">
+                <div class="preset-card" data-id="m1" data-title="Orbital Motion Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Orbital Motion Pack</h3>
+                                <p class="card-subtitle">3D layer movements</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Camera Orbit Spin</li>
+                            <li><i data-lucide="check-circle-2"></i>Parallax Depth</li>
+                            <li><i data-lucide="check-circle-2"></i>3D Flip Reveal</li>
+                            <li><i data-lucide="check-circle-2"></i>Isometric Shift</li>
+                            <li><i data-lucide="check-circle-2"></i>Perspective Zoom</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="m1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-id="m2" data-title="Depth Field Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Depth Field Pack</h3>
+                                <p class="card-subtitle">Focus & blur dynamics</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Rack Focus Pull</li>
+                            <li><i data-lucide="check-circle-2"></i>Blur Reveal In</li>
+                            <li><i data-lucide="check-circle-2"></i>Depth Map Shift</li>
+                            <li><i data-lucide="check-circle-2"></i>Bokeh Transition</li>
+                            <li><i data-lucide="check-circle-2"></i>Focus Stacking</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="m2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-id="m3" data-title="Kinetic Scale Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Kinetic Scale Pack</h3>
+                                <p class="card-subtitle">Impact scaling effects</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Impact Punch In</li>
+                            <li><i data-lucide="check-circle-2"></i>Smooth Scale Out</li>
+                            <li><i data-lucide="check-circle-2"></i>Elastic Overshoot</li>
+                            <li><i data-lucide="check-circle-2"></i>Breathing Pulse</li>
+                            <li><i data-lucide="check-circle-2"></i>Velocity Scale</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="m3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" id="cat-text">
+            <div class="cards-container">
+                <div class="preset-card" data-id="tx1" data-title="Type Reveal Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Type Reveal Pack</h3>
+                                <p class="card-subtitle">Character animations</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Typewriter Effect</li>
+                            <li><i data-lucide="check-circle-2"></i>Character Pop In</li>
+                            <li><i data-lucide="check-circle-2"></i>Word Stagger</li>
+                            <li><i data-lucide="check-circle-2"></i>Line Mask Reveal</li>
+                            <li><i data-lucide="check-circle-2"></i>Cursor Blink Type</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="tx1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-id="tx2" data-title="Kinetic Title Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Kinetic Title Pack</h3>
+                                <p class="card-subtitle">Bold motion typography</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Slide Up Title</li>
+                            <li><i data-lucide="check-circle-2"></i>Scale Entrance</li>
+                            <li><i data-lucide="check-circle-2"></i>Rotate Drop In</li>
+                            <li><i data-lucide="check-circle-2"></i>Bounce Settle</li>
+                            <li><i data-lucide="check-circle-2"></i>Split Text Merge</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="tx2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-id="tx3" data-title="Glitch Text Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Glitch Text Pack</h3>
+                                <p class="card-subtitle">Digital distortion type</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Scan Line Text</li>
+                            <li><i data-lucide="check-circle-2"></i>RGB Split Letters</li>
+                            <li><i data-lucide="check-circle-2"></i>Data Corrupt</li>
+                            <li><i data-lucide="check-circle-2"></i>Pixel Sort Type</li>
+                            <li><i data-lucide="check-circle-2"></i>Wave Distort</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="tx3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" id="cat-color">
+            <div class="cards-container">
+                <div class="preset-card" data-id="c1" data-title="Cinematic Grade Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Cinematic Grade Pack</h3>
+                                <p class="card-subtitle">Film look colors</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Teal Orange Blockbuster</li>
+                            <li><i data-lucide="check-circle-2"></i>Muted Earth Tones</li>
+                            <li><i data-lucide="check-circle-2"></i>High Contrast Noir</li>
+                            <li><i data-lucide="check-circle-2"></i>Warm Vintage Film</li>
+                            <li><i data-lucide="check-circle-2"></i>Cold Blue Drama</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="c1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-id="c2" data-title="Neon Nights Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Neon Nights Pack</h3>
+                                <p class="card-subtitle">Cyberpunk color palette</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Neon Magenta Glow</li>
+                            <li><i data-lucide="check-circle-2"></i>Cyan Electric Pop</li>
+                            <li><i data-lucide="check-circle-2"></i>Purple Haze Shift</li>
+                            <li><i data-lucide="check-circle-2"></i>Acid Green Punch</li>
+                            <li><i data-lucide="check-circle-2"></i>Hot Orange Burn</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="c2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-id="c3" data-title="Clean Aesthetic Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Clean Aesthetic Pack</h3>
+                                <p class="card-subtitle">Minimal bright tones</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Bright Airy Exposure</li>
+                            <li><i data-lucide="check-circle-2"></i>Soft Pastel Matte</li>
+                            <li><i data-lucide="check-circle-2"></i>Clean White Balance</li>
+                            <li><i data-lucide="check-circle-2"></i>Subtle Saturation</li>
+                            <li><i data-lucide="check-circle-2"></i>Lifted Shadows</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="c3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section" id="cat-glitch">
+            <div class="cards-container">
+                <div class="preset-card" data-id="g1" data-title="Digital Break Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Digital Break Pack</h3>
+                                <p class="card-subtitle">Heavy distortion effects</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Screen Tear Heavy</li>
+                            <li><i data-lucide="check-circle-2"></i>Channel Split Max</li>
+                            <li><i data-lucide="check-circle-2"></i>Pixel Crash</li>
+                            <li><i data-lucide="check-circle-2"></i>Data Moshing</li>
+                            <li><i data-lucide="check-circle-2"></i>Signal Loss</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="g1">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-id="g2" data-title="VHS Retro Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">VHS Retro Pack</h3>
+                                <p class="card-subtitle">Analog tape effects</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Tracking Error</li>
+                            <li><i data-lucide="check-circle-2"></i>Head Clog Lines</li>
+                            <li><i data-lucide="check-circle-2"></i>Chromatic Aberration</li>
+                            <li><i data-lucide="check-circle-2"></i>Vignette Darkening</li>
+                            <li><i data-lucide="check-circle-2"></i>Tape Wobble</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="g2">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-id="g3" data-title="Cyber Glitch Pack" data-price="99" data-video="">
+                    <div class="preview-container">
+                        <video class="preview-video" autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <div class="preview-overlay">
+                            <span class="preview-badge">Auto-play</span>
+                            <span class="preview-badge">Loop</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Cyber Glitch Pack</h3>
+                                <p class="card-subtitle">Tech-noir distortion</p>
+                            </div>
+                            <div class="card-price">₱99<span>only</span></div>
+                        </div>
+                        <ul class="preset-list">
+                            <li><i data-lucide="check-circle-2"></i>Matrix Rain Overlay</li>
+                            <li><i data-lucide="check-circle-2"></i>Hex Corruption</li>
+                            <li><i data-lucide="check-circle-2"></i>Scan Grid</li>
+                            <li><i data-lucide="check-circle-2"></i>System Error Flash</li>
+                            <li><i data-lucide="check-circle-2"></i>Bit Reduction</li>
+                        </ul>
+                        <div class="card-footer">
+                            <button class="btn-add-cart" data-id="g3">
+                                <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-icon" aria-label="Preview">
+                                <i data-lucide="eye" style="width:18px;height:18px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">Fordios</div>
+            <p class="footer-text">Premium presets for the next generation of mobile creators.</p>
+            <ul class="footer-links">
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+            <p class="footer-copy"> 2026 Fordios. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle-2" style="width:18px;height:18px;color:var(--accent-green);"></i>
+        <span id="toastMsg">Added to cart!</span>
+    </div>
+
+    <script>
+        let cart = [];
+
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartToggleBtn = document.getElementById('cartToggleBtn');
+        const cartCloseBtn = document.getElementById('cartCloseBtn');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const cartBadge = document.getElementById('cartBadge');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toastMsg');
+
+        const premiumOverlay = document.getElementById('premiumOverlay');
+        const premiumModal = document.getElementById('premiumModal');
+        const viewPremiumBtn = document.getElementById('viewPremiumBtn');
+        const premiumCloseBtn = document.getElementById('premiumCloseBtn');
+
+        function openCart() {
+            cartOverlay.classList.add('open');
+            cartSidebar.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCart() {
+            cartOverlay.classList.remove('open');
+            cartSidebar.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        cartToggleBtn.addEventListener('click', openCart);
+        cartCloseBtn.addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', closeCart);
+
+        function openPremium() {
+            premiumOverlay.classList.add('open');
+            premiumModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePremium() {
+            premiumOverlay.classList.remove('open');
+            premiumModal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        viewPremiumBtn.addEventListener('click', openPremium);
+        premiumCloseBtn.addEventListener('click', closePremium);
+        premiumOverlay.addEventListener('click', closePremium);
+
+        function showToast(message) {
+            toastMsg.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function getCardData(id) {
+            const card = document.querySelector(`.preset-card[data-id="${id}"], .premium-card[data-id="${id}"]`);
+            if (!card) return null;
+            return {
+                id: id,
+                title: card.dataset.title,
+                price: parseInt(card.dataset.price),
+                video: card.dataset.video
+            };
+        }
+
+        function addToCart(id) {
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                showToast('Already in cart!');
+                return;
+            }
+            const data = getCardData(id);
+            if (!data) return;
+            cart.push(data);
+            updateCartUI();
+            showToast(`${data.title} added to cart!`);
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            if (cart.length > 0) {
+                cartBadge.style.display = 'flex';
+                cartBadge.textContent = cart.length;
+            } else {
+                cartBadge.style.display = 'none';
+            }
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="cart-empty">
+                        <i data-lucide="shopping-bag" style="width:48px;height:48px;"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <div class="cart-item-thumb">
+                            <video autoplay muted loop playsinline disablePictureInPicture style="width:100%;height:100%;object-fit:cover;pointer-events:none;">
+                                <source src="${item.video || ''}" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="cart-item-info">
+                            <div class="cart-item-title">${item.title}</div>
+                            <div class="cart-item-price">₱${item.price}</div>
+                        </div>
+                        <button class="cart-item-remove" data-remove="${item.id}" aria-label="Remove item">
+                            <i data-lucide="trash-2" style="width:16px;height:16px;"></i>
+                        </button>
+                    </div>
+                `).join('');
+
+                document.querySelectorAll('[data-remove]').forEach(btn => {
+                    btn.addEventListener('click', () => removeFromCart(btn.dataset.remove));
+                });
+            }
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotal.textContent = '₱' + total.toLocaleString();
+
+            lucide.createIcons();
+        }
+
+        document.querySelectorAll('.btn-add-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                addToCart(btn.dataset.id);
+            });
+        });
+
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                showToast('Your cart is empty!');
+                return;
+            }
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            alert(`Checkout\n\nItems: ${cart.length}\nTotal: ₱${total.toLocaleString()}\n\n(Connect your payment gateway here)`);
+        });
+
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const categorySections = document.querySelectorAll('.category-section');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                categorySections.forEach(s => s.classList.remove('active'));
+                btn.classList.add('active');
+                const catId = 'cat-' + btn.dataset.category;
+                document.getElementById(catId).classList.add('active');
+            });
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                nav.style.background = 'rgba(3, 3, 4, 0.9)';
+                nav.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+            } else {
+                nav.style.background = 'rgba(3, 3, 4, 0.7)';
+                nav.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>
